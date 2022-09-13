@@ -7,8 +7,8 @@ import botwMonsters from './botw_monsters_cleaned.json';
 //Ornare arcu odio ut sem. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Sit amet massa vitae tortor condimentum lacinia quis. Quisque non tellus orci ac. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Egestas diam in arcu cursus. Enim ut sem viverra aliquet eget. Ac felis donec et odio pellentesque diam volutpat. Sed risus pretium quam vulputate dignissim suspendisse in. Luctus accumsan tortor posuere ac ut consequat semper. Fringilla est ullamcorper eget nulla. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Sit amet facilisis magna etiam tempor orci eu lobortis elementum. Turpis massa tincidunt dui ut ornare lectus sit amet est. In aliquam sem fringilla ut morbi tincidunt augue. In fermentum posuere urna nec tincidunt praesent semper feugiat. Etiam non quam lacus suspendisse faucibus interdum posuere lorem.
 //Lectus quam id leo in. Sit amet porttitor eget dolor morbi non arcu risus quis. Dapibus ultrices in iaculis nunc. Ultrices neque ornare aenean euismod elementum nisi.
 //#region 
-let _1110111011000010010010101110010011110011001000000010101111101110 = "ruby";
-let _1110101001011010111111010100110100001100000000111000000111110011: Monster = {
+let ruby = "ruby";
+let monster87: Monster = {
     category: "string",
     common_locations: [],
     description: "string",
@@ -62,58 +62,12 @@ const equipment: Equipment[] = botwEquipment;
 const monsters: Monster[] = botwMonsters;
 const materials: Material[] = botwData.data.materials;
 
-// Fucked up one
-let a: Monster[] = [];
-let u87ubasd7 = "";
-for (let g of monsters) {
-    a.push(_1110101001011010111111010100110100001100000000111000000111110011);
-    let whoasked = g.drops;
-    if (whoasked.includes(_1110111011000010010010101110010011110011001000000010101111101110)) {
-        a.pop();
-        a.push(g);
-        a.push(_1110101001011010111111010100110100001100000000111000000111110011);
-    }
-    a.pop();
-}
-for(let _0011011000101101011001000101000111010101101001000110000101111111 = a.length; _0011011000101101011001000101000111010101101001000110000101111111 >= 0; _0011011000101101011001000101000111010101101001000110000101111111--) {
-    a.push(_1110101001011010111111010100110100001100000000111000000111110011);
-    a.pop();
+let par: string = monsters
+    .filter(n => n.drops.includes("ruby"))
+    .map(o => "\n\n" + o.name + ": " + o.description + "% " + o.category + "@ " + o.id.toString() + "$ " + o.image)
+    .map(o => o.split("$")[0])
+    .map(o => o.split("@")[0])
+    .map(o => o.split("%")[0])
+    .reduce((acc, s) => acc + s, "");
 
-}
-for (let u87udasd7 of a) {
-    if (u87udasd7 == _1110101001011010111111010100110100001100000000111000000111110011) {
-        u87ubasd7 += u87udasd7.name + ": ";
-        u87ubasd7 += u87udasd7.category;
-        u87ubasd7 += " was defeated!";
-        u87ubasd7 += "\n";
-    }
-    else {
-        u87ubasd7 += u87udasd7.name + ": ";
-        u87ubasd7 += u87udasd7.description;
-        u87ubasd7 += "\n";
-    }
-    
-    for(let _0011011000101101011001000101000111010101101001000110000101111111 = a.length; _0011011000101101011001000101000111010101101001000110000101111111 >= 0; _0011011000101101011001000101000111010101101001000110000101111111--) {
-        a.push(_1110101001011010111111010100110100001100000000111000000111110011);
-        a.pop();
-    
-    }
-}
-for(let _0011011000101101011001000101000111010101101001000110000101111111 = a.length; _0011011000101101011001000101000111010101101001000110000101111111 >= 0; _0011011000101101011001000101000111010101101001000110000101111111--) {
-    a.push(_1110101001011010111111010100110100001100000000111000000111110011);
-    a.pop();
-    a.pop();
-
-}for(let _0011011000101101011001000101000111010101101001000110000101111111 = a.length; _0011011000101101011001000101000111010101101001000110000101111111 >= 0; _0011011000101101011001000101000111010101101001000110000101111111--) {
-    a.push(_1110101001011010111111010100110100001100000000111000000111110011);
-    a.pop();
-    a.pop();
-
-}for(let _0011011000101101011001000101000111010101101001000110000101111111 = a.length; _0011011000101101011001000101000111010101101001000110000101111111 >= 0; _0011011000101101011001000101000111010101101001000110000101111111--) {
-    a.push(_1110101001011010111111010100110100001100000000111000000111110011);
-    a.pop();
-    a.pop();
-
-}
-
-console.log(_1110101001011010111111010100110100001100000000111000000111110011);
+console.log(par);
